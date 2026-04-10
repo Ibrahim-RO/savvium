@@ -1,9 +1,14 @@
+import { ProblemasSection } from "./components/problems";
+import { HeroImageSection } from "./components/HeroImage";
 
-
-const Inicio = () => {
+export default function Inicio() {
   return (
-    <div>Inicio</div>
+    <div>
+      {/* Section Header */}
+      
+      {/* Primer Form*/}
+      <HeroImageSection />
+      <ProblemasSection />
+    </div>
   )
 }
-
-export default Inicio

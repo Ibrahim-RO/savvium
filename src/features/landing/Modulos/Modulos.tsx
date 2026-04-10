@@ -1,9 +1,5 @@
-
-
-const Modulos = () => {
+export default function Modulos() {
   return (
     <div>Modulos</div>
   )
 }
-
-export default Modulos

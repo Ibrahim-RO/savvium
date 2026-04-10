@@ -1,8 +1,11 @@
+import { ModulosGrid } from "./components/moduloGrid";
+import { ProblemasSection } from "./components/moduloComponents";
 
-const Producto = () => {
+export default function Producto() {
   return (
-    <div>Producto</div>
+    <>
+      <ModulosGrid />
+      <ProblemasSection />
+    </>
   )
 }
-
-export default Producto

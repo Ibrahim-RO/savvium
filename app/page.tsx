@@ -1,7 +1,11 @@
+import Inicio from "@/src/features/landing/Inicio/Inicio";
+import Producto from "@/src/features/landing/Producto/Producto";
+
 export default function Home() {
   return (
     <>
-      <h1>Hola mundo</h1>
+      <Inicio />
+      <Producto />
     </>
   )
 }
