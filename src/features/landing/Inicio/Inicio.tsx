@@ -1,7 +1,7 @@
-import { ProblemasSection } from "./components/problems";
-import { HeroImageSection } from "./components/HeroImage";
+import { ProblemasSection } from "./components/problems"
+import { HeroImageSection } from "./components/HeroImage"
 
-export default function Inicio() {
+const Inicio = () => {
   return (
     <div>
       {/* Section Header */}

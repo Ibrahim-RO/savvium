@@ -1,5 +1,9 @@
-export default function Modulos() {
+import { Section_2 } from "./components/Section_2";
+
+export default function Modulos() { 
   return (
-    <div>Modulos</div>
-  )
+    <div>
+      <Section_2 />
+    </div>
+  );
 }
