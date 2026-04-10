@@ -1,9 +1,9 @@
+import { ModulosGrid } from "./components/moduloGrid"
 
-const Producto = () => {
+export default function Producto() {
   return (
     <>
       <ModulosGrid />
-      <ProblemasSection />
     </>
-  )
+  );
 }
