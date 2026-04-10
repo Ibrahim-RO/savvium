@@ -1,9 +1,9 @@
+import { Section_2 } from "./components/Section_2";
 
-
-const Modulos = () => {
+export default function Modulos() { 
   return (
-    <div>Modulos</div>
-  )
+    <div>
+      <Section_2 />
+    </div>
+  );
 }
-
-export default Modulos

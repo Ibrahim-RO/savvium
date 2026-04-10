@@ -1,9 +1,5 @@
-
-
-const Inicio = () => {
+export default function Inicio() {
   return (
     <div>Inicio</div>
   )
-}
-
-export default Inicio
+}   
