@@ -15,7 +15,14 @@ export default function Form() {
   const onSubmit = async (data: Form) => {
 
     const { success, error } = await sendEmail(data)
-    toast.success("Mensaje enviado correctamente")
+
+    if(success) {
+      toast.success(success)
+    }
+
+    if(error) {
+      toast.error(error)
+    }
   }
 
   return (
