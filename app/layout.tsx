@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import ToastContainer from "@/src/shared/components/ToastContainer";
+import ToastContainer from "@/shared/components/ToastContainer";
+import Header from "@/shared/components/Header";
+import Footer from "@/shared/components/Footer";
 
 const chakraPetch = localFont({
   src: [
@@ -23,22 +25,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-<<<<<<< HEAD
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">
-        {children}
-        <ToastContainer />
-      </body>      
-=======
+  return (     
     <html lang="es">
       <body className={`${chakraPetch.className} antialiased text-gray-900 bg-white`}>
+        <Header />
         {children}
+        <Footer />
+        <ToastContainer />
       </body>
->>>>>>> 6620009fcdaf82408bbb21d5d2ddc5598a3513e7
     </html>
   );
 }
