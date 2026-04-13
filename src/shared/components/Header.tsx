@@ -18,8 +18,7 @@ export default function Header() {
 
     return (
         <header
-            className={`w-full fixed top-0 left-0 z-50 transition-all duration-500 ${scrolled ? "bg-black/60 backdrop-blur-md py-3" : "bg-transparent py-5"
-                }`}
+            className={`w-full fixed top-0 left-0 z-50 transition-all duration-500 ${scrolled ? "bg-black/60 backdrop-blur-md py-2 text-white" : "bg-transparent py-3"}`}
         >
             <div className="flex justify-between items-center gap-5 px-10 py-3">
                 <Image
@@ -27,7 +26,7 @@ export default function Header() {
                     alt="Logo Savvium"
                     width={300}
                     height={150}
-                    className="w-40"
+                    className="w-36"
                 />
                 <div>
                     <nav className="flex gap-5 justify-center items-center">
