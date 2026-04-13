@@ -3,12 +3,14 @@
 import Image from "next/image"
 import { navigation } from "../data/navigation";
 import Link from "next/link";
+import { FaInstagram } from "react-icons/fa6";
+import { FaTiktok, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 
 const socialMedias = [
-    { name: "Facebook", ulr: "#" },
-    { name: "Instagram", ulr: "#" },
-    { name: "LinkedIn", ulr: "#" },
-    { name: "Whatsapp", ulr: "#" },
+    { name: "Instagram", ulr: "#", icon: <FaInstagram /> },
+    { name: "Tiktok", ulr: "#", icon: <FaTiktok /> },
+    { name: "LinkedIn", ulr: "#", icon: <FaLinkedinIn /> },
+    { name: "Whatsapp", ulr: "#", icon: <FaWhatsapp /> },
 ]
 
 export default function Footer() {
@@ -25,14 +27,16 @@ export default function Footer() {
                     />
                     <p className="text-gray-300">El ERP inteligente para empresas en crecimiento</p>
                     <div className="flex gap-3">
-                        <a 
-                            href="#"
-                            className="bg-white/10 p-2 rounded-full hover:bg-white/15 hover:transition-transform hover:scale-110 hover:duration-300"
-                        >
-                            Face
-                        </a>
+                        {socialMedias.map(media => (
+                            <a
+                                key={media.name}
+                                href={media.ulr}
+                                className="bg-white/10 p-2 rounded-full hover:bg-white/15 hover:transition-transform hover:scale-110 hover:duration-300"
+                            >
+                                {media.icon}
+                            </a>
+                        ))}
                     </div>
-                    {/* social medias : insta, tiktok, linkedin, whatsapp */}
                 </div>
                 <nav className="flex flex-col gap-2 justify-center items-center">
                     <p className="font-bold text-lg">Enlaces</p>
