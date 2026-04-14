@@ -5,6 +5,7 @@ import { navigation } from "../data/navigation";
 import Link from "next/link";
 import { FaInstagram } from "react-icons/fa6";
 import { FaTiktok, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
+import { ModalFormContact } from "./ModalFormContact";
 
 const socialMedias = [
     { name: "Instagram", ulr: "#", icon: <FaInstagram /> },
@@ -16,8 +17,8 @@ const socialMedias = [
 export default function Footer() {
     return (
         <footer className="bg-[#101829] text-white">
-            <div className="max-w-7xl mx-auto py-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div className="space-y-3">
+            <div className="max-w-7xl mx-auto py-6 grid grid-cols-1 lg:grid-cols-3 gap-8 p-5 text-center lg:text-left">
+                <div className="space-y-3 flex flex-col justify-center items-center lg:justify-start lg:items-start gap-2">
                     <Image
                         src={"/savviumLogo.png"}
                         alt="Logo Savvium"
@@ -31,7 +32,7 @@ export default function Footer() {
                             <a
                                 key={media.name}
                                 href={media.ulr}
-                                className="bg-white/10 p-2 rounded-full hover:bg-white/15 hover:transition-transform hover:scale-110 hover:duration-300"
+                                className="bg-white/10 p-2 rounded-full hover:bg-white/15 hover:transition-transform hover:scale-110 hover:duration-300 text-2xl lg:text-lg"
                             >
                                 {media.icon}
                             </a>
@@ -52,20 +53,18 @@ export default function Footer() {
                         )
                     })}
                 </nav>
-                <div className="place-items-end">
+                <div className="lg:place-items-end">
                     <div className="space-y-3 ">
                         <p className="text-lg font-bold">¿Listo para empezar?</p>
-                        <button
-                            className="bg-blue-600 hover:bg-blue-700 transition-colors px-6 py-2 rounded-lg text-white cursor-pointer font-semibold"
-                        >
-                            Agenda tu demo
-                        </button>
+                        <ModalFormContact label={"Agenda tu Demo"} />
                     </div>
                 </div>
 
             </div>
-            <hr />
-            <p>&copy; {new Date().getFullYear()} Savvium. Todos los derechos reservados.</p>
+            <div className="max-w-7xl mx-auto py-10 space-y-5 text-center">
+                <hr className="border border-gray-500" />
+                <p>&copy; {new Date().getFullYear()} Savvium. Todos los derechos reservados.</p>
+            </div>
         </footer>
     )
 }

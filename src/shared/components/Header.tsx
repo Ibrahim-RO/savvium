@@ -5,6 +5,7 @@ import { navigation } from "../data/navigation";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ModalFormContact } from "./ModalFormContact";
 
 export default function Header() {
     const [activeSection, setActiveSection] = useState("inicio");
@@ -30,7 +31,7 @@ export default function Header() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.1, ease: [0.22, 1, 0.36, 1] }}
                 className={`w-full fixed top-0 left-0 z-50 transition-all duration-500 ${scrolled
-                        ? "bg-gray-950/80 backdrop-blur-xl border-b border-white/10 py-0"
+                        ? "bg-gray-200/80 backdrop-blur-xl border-b border-white/10 py-0"
                         : "bg-transparent py-1"
                     }`}
             >
@@ -44,7 +45,7 @@ export default function Header() {
                             alt="Logo Savvium"
                             width={300}
                             height={150}
-                            className={`w-28 md:w-32 transition-all duration-500 ${scrolled ? "brightness-0 invert" : ""}`}
+                            className={`w-28 md:w-32 transition-all duration-500`}
                         />
                     </motion.div>
 
@@ -65,7 +66,7 @@ export default function Header() {
                                                     ? "text-white bg-white/10"
                                                     : "text-blue-600 bg-blue-50"
                                                 : scrolled
-                                                    ? "text-gray-300 hover:text-white hover:bg-white/10"
+                                                    ? "text-gray-900 hover:text-black hover:bg-black/20"
                                                     : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
                                             }`}
                                     >
@@ -82,20 +83,9 @@ export default function Header() {
                         })}
                     </nav>
 
-                    <motion.button
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.5, duration: 0.4 }}
-                        whileHover={{ scale: 1.04 }}
-                        whileTap={{ scale: 0.97 }}
-                        className={`hidden md:block relative overflow-hidden px-5 py-2.5 rounded-xl text-sm font-semibold cursor-pointer transition-colors duration-300 group ${scrolled
-                                ? "bg-blue-500 hover:bg-blue-400 text-white shadow-lg shadow-blue-500/25"
-                                : "bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-600/30"
-                            }`}
-                    >
-                        <span className="relative z-10">Agenda tu demo</span>
-                        <span className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                    </motion.button>
+                    <div className="hidden lg:block">
+                        <ModalFormContact label={"Agenda tu Demo"} />
+                    </div>
 
                     <motion.button
                         initial={{ opacity: 0 }}
@@ -154,12 +144,6 @@ export default function Header() {
                                     height={100}
                                     className="w-24 brightness-0 invert"
                                 />
-                                <button
-                                    onClick={() => setMenuOpen(false)}
-                                    className="text-gray-400 hover:text-white transition-colors"
-                                >
-                                    ✕
-                                </button>
                             </div>
                             <nav className="flex flex-col px-4 py-6 gap-1 flex-1">
                                 {navigation.map((item, i) => {
@@ -193,9 +177,7 @@ export default function Header() {
                                 transition={{ delay: 0.3, duration: 0.4 }}
                                 className="px-4 pb-8"
                             >
-                                <button className="w-full bg-blue-600 hover:bg-blue-500 transition-colors text-white font-semibold py-3 rounded-xl text-sm shadow-lg shadow-blue-600/30">
-                                    Agenda tu demo
-                                </button>
+                                <ModalFormContact label={"Agenda tu Demo"} />
                             </motion.div>
                         </motion.div>
                     </>
