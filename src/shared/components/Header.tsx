@@ -20,9 +20,35 @@ export default function Header() {
     }, []);
 
     useEffect(() => {
+        const observers: IntersectionObserver[] = [];
+
+        navigation.forEach(({ id }) => {
+            const el = document.getElementById(id);
+            if (!el) return;
+
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting) setActiveSection(id);
+                },
+                {
+                    rootMargin: "-30% 0px -60% 0px",
+                    threshold: 0,
+                }
+            );
+
+            observer.observe(el);
+            observers.push(observer);
+        });
+
+        return () => observers.forEach((o) => o.disconnect());
+    }, []);
+
+    useEffect(() => {
         document.body.style.overflow = menuOpen ? "hidden" : "";
         return () => { document.body.style.overflow = ""; };
     }, [menuOpen]);
+
+    console.log(activeSection)
 
     return (
         <>
@@ -31,8 +57,8 @@ export default function Header() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.1, ease: [0.22, 1, 0.36, 1] }}
                 className={`w-full fixed top-0 left-0 z-50 transition-all duration-500 ${scrolled
-                        ? "bg-gray-200/80 backdrop-blur-xl border-b border-white/10 py-0"
-                        : "bg-transparent py-1"
+                    ? "bg-gray-200/80 backdrop-blur-xl border-b border-white/10 py-0"
+                    : "bg-transparent py-1"
                     }`}
             >
                 <div className="max-w-7xl mx-auto flex justify-between items-center px-6 md:px-8 py-4">
@@ -40,18 +66,22 @@ export default function Header() {
                         whileHover={{ scale: 1.03 }}
                         transition={{ type: "spring", stiffness: 400, damping: 20 }}
                     >
-                        <Image
-                            src={"/savviumLogo.png"}
-                            alt="Logo Savvium"
-                            width={300}
-                            height={150}
-                            className={`w-28 md:w-32 transition-all duration-500`}
-                        />
+                        <Link
+                            href={'/#inicio'}
+                        >
+                            <Image
+                                src={"/savviumLogo.png"}
+                                alt="Logo Savvium"
+                                width={300}
+                                height={150}
+                                className={`w-28 md:w-32 transition-all duration-500`}
+                            />
+                        </Link>
                     </motion.div>
 
                     <nav className="hidden md:flex items-center gap-1">
                         {navigation.map((item, i) => {
-                            const isActive = activeSection === item.name;
+                            const isActive = activeSection === item.id;
                             return (
                                 <motion.div
                                     key={item.name}
@@ -62,21 +92,15 @@ export default function Header() {
                                     <Link
                                         href={item.url}
                                         className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${isActive
-                                                ? scrolled
-                                                    ? "text-white bg-white/10"
-                                                    : "text-blue-600 bg-blue-50"
-                                                : scrolled
-                                                    ? "text-gray-900 hover:text-black hover:bg-black/20"
-                                                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                                            ? scrolled
+                                                ? "text-blue-600 bg-blue-500/20"
+                                                : "text-blue-600 bg-blue-50"
+                                            : scrolled
+                                                ? "text-gray-900 hover:text-black hover:bg-black/20"
+                                                : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
                                             }`}
                                     >
                                         {item.name}
-                                        {isActive && (
-                                            <motion.span
-                                                layoutId="activeDot"
-                                                className={`absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full ${scrolled ? "bg-blue-400" : "bg-blue-600"}`}
-                                            />
-                                        )}
                                     </Link>
                                 </motion.div>
                             );
@@ -92,8 +116,7 @@ export default function Header() {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.3 }}
                         onClick={() => setMenuOpen(!menuOpen)}
-                        className={`md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5 rounded-lg transition-colors duration-300 ${scrolled || menuOpen ? "text-white" : "text-gray-700"
-                            }`}
+                        className={`md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5 rounded-lg transition-colors duration-300 text-gray-700`}
                         aria-label="Toggle menu"
                     >
                         <motion.span
@@ -159,8 +182,8 @@ export default function Header() {
                                                 href={item.url}
                                                 onClick={() => setMenuOpen(false)}
                                                 className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${isActive
-                                                        ? "text-white bg-blue-600/20 border border-blue-500/30"
-                                                        : "text-gray-300 hover:text-white hover:bg-white/8"
+                                                    ? "text-white bg-blue-600/20 border border-blue-500/30"
+                                                    : "text-gray-300 hover:text-white hover:bg-white/8"
                                                     }`}
                                             >
                                                 {isActive && <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0" />}

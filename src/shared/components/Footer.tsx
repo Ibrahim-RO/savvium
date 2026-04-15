@@ -19,13 +19,19 @@ export default function Footer() {
         <footer className="bg-[#101829] text-white">
             <div className="max-w-7xl mx-auto py-6 grid grid-cols-1 lg:grid-cols-3 gap-8 p-5 text-center lg:text-left">
                 <div className="space-y-3 flex flex-col justify-center items-center lg:justify-start lg:items-start gap-2">
-                    <Image
-                        src={"/savviumLogo.png"}
-                        alt="Logo Savvium"
-                        width={300}
-                        height={150}
-                        className="w-40"
-                    />
+                    <div className="flex items-center gap-4">
+                        <Image
+                            src={"/savviumWhite.png"}
+                            alt="Logo Savvium"
+                            width={300}
+                            height={150}
+                            className="w-20"
+                        />
+                        <div className="font-semibold">
+                            <p>SAVVIUM</p>
+                            <p>CLOUD ERP</p>
+                        </div>
+                    </div>
                     <p className="text-gray-300">El ERP inteligente para empresas en crecimiento</p>
                     <div className="flex gap-3">
                         {socialMedias.map(media => (
