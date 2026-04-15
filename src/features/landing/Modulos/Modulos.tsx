@@ -3,7 +3,8 @@ import { ModNeeds } from "./components/section1";
 
 export default function Modulos() { 
   return (
-    <div>
+    <div id="modules" className="scroll-mt-16">
+      <ModNeeds />
       <Section_2 />
     </div>
   );
