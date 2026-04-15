@@ -48,8 +48,6 @@ export default function Header() {
         return () => { document.body.style.overflow = ""; };
     }, [menuOpen]);
 
-    console.log(activeSection)
-
     return (
         <>
             <motion.header

@@ -38,6 +38,7 @@ export default function Footer() {
                             <a
                                 key={media.name}
                                 href={media.ulr}
+                                target="_blank"
                                 className="bg-white/10 p-2 rounded-full hover:bg-white/15 hover:transition-transform hover:scale-110 hover:duration-300 text-2xl lg:text-lg"
                             >
                                 {media.icon}

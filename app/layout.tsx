@@ -4,6 +4,7 @@ import "./globals.css";
 import ToastContainer from "@/shared/components/ToastContainer";
 import Header from "@/shared/components/Header";
 import Footer from "@/shared/components/Footer";
+import { ScrollTop } from "@/shared/components/ScrollTop";
 
 const chakraPetch = localFont({
   src: [
@@ -31,6 +32,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <ScrollTop />
         <ToastContainer />
       </body>
     </html>
