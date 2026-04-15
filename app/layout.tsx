@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import ToastContainer from "@/shared/components/ToastContainer";
+import Header from "@/shared/components/Header";
+import Footer from "@/shared/components/Footer";
 
 const chakraPetch = localFont({
   src: [
@@ -22,10 +25,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
+  return (     
     <html lang="es">
       <body className={`${chakraPetch.className} antialiased text-gray-900 bg-white`}>
+        <Header />
         {children}
+        <Footer />
+        <ToastContainer />
       </body>
     </html>
   );

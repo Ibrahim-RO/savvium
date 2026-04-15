@@ -4,7 +4,6 @@ import { ModNeeds } from "./components/section1";
 export default function Modulos() { 
   return (
     <div>
-      <ModNeeds />
       <Section_2 />
     </div>
   );
