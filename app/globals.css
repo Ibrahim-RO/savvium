@@ -29,7 +29,7 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
 
-  --color-accent: var(--accent);
+  --color-accent: #2563eb;
   --color-accent-foreground: var(--accent-foreground);
 
   --color-destructive: var(--destructive);
@@ -111,6 +111,10 @@
 @layer base {
   body {
     @apply bg-background text-foreground;
+  }
+
+  h2 {
+    @apply text-accent text-4xl md:text-4xl lg:text-5xl font-bold;
   }
 }
 

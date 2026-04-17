@@ -1,4 +1,4 @@
-import { ModulosData } from '../types/Section_2';
+import { ModulosData } from '../types/section_2.types';
 
 export const modulosData: ModulosData = {
   titulo: "Lo que cambia cuando usas Savvium",

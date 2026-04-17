@@ -4,6 +4,7 @@ import Header from "@/shared/components/Header";
 import Inicio from "@/features/landing/Inicio/Inicio";
 import Producto from "@/features/landing/Producto/Producto";
 import Modulos from "@/features/landing/Modulos/Modulos";
+import Precios from "@/features/landing/Precios/Precios";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Inicio />
       <Producto />
       <Modulos />
+      <Precios />
     </>
   );
 }

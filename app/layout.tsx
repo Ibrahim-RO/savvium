@@ -4,6 +4,7 @@ import "./globals.css";
 import ToastContainer from "@/shared/components/ToastContainer";
 import Header from "@/shared/components/Header";
 import Footer from "@/shared/components/Footer";
+import AOSProvider from "../components/ui/AOSProvider";
 
 const chakraPetch = localFont({
   src: [
@@ -29,6 +30,7 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${chakraPetch.className} antialiased text-gray-900 bg-white`}>
         <Header />
+        <AOSProvider />
         {children}
         <Footer />
         <ToastContainer />

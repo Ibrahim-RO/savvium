@@ -2,7 +2,6 @@ export interface ListaItem {
   id: string;
   texto: string;
 }
-
 export interface EstadisticaItem {
   id: string;
   porcentaje: string;
