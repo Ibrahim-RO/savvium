@@ -4,8 +4,13 @@ import { useForm } from 'react-hook-form'
 import { type Form, FormSchema } from '../types'
 import ErrorMessage from './ErrorMessage'
 import { sendEmail } from '../actions/send-email-action'
+import { Dispatch, SetStateAction } from 'react'
 
-export default function Form() {
+type Props = {
+  isOpen?: Dispatch<SetStateAction<boolean>>
+}
+
+export default function Form({ isOpen } : Props) {
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: zodResolver(FormSchema),
@@ -15,7 +20,18 @@ export default function Form() {
   const onSubmit = async (data: Form) => {
 
     const { success, error } = await sendEmail(data)
-    toast.success("Mensaje enviado correctamente")
+
+    if (success) {
+      toast.success(success)
+
+      if(isOpen) {
+        isOpen(false)
+      }
+    }
+
+    if (error) {
+      toast.error(error)
+    }
   }
 
   return (
