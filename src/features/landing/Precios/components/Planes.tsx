@@ -7,7 +7,7 @@ export const Planes: React.FC = () => {
   const { titulo, subtitulo, planes } = preciosData;
 
   return (
-    <section className="py-16 px-4 md:py-20 lg:py-24">
+    <section id="price" className="py-16 px-4 md:py-20 lg:py-24">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 md:mb-16">

@@ -44,16 +44,16 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
 };
 
 export const ProblemasSection = () => {
   return (
     <section className="w-full py-16 md:py-24 bg-gray-50/50">
-      
+
       <div className="max-w-6xl mx-auto px-4">
 
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -63,7 +63,7 @@ export const ProblemasSection = () => {
           Si tu empresa está creciendo, probablemente ya enfrentaste esto:
         </motion.h2>
 
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
@@ -73,8 +73,9 @@ export const ProblemasSection = () => {
           {problemas.map((problema) => (
             <motion.div
               key={problema.id}
-              opacity={1}
               variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               className="bg-white rounded-2xl p-8 border border-gray-200 hover:border-blue-600 hover:shadow-xl hover:shadow-gray-500/10 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] flex flex-col items-start transition-colors duration-300 cursor-pointer"
             >
               <div className="text-blue-600 mb-6">
@@ -86,7 +87,7 @@ export const ProblemasSection = () => {
             </motion.div>
           ))}
         </motion.div>
-      
+
       </div>
     </section>
   );

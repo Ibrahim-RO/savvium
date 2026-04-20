@@ -43,7 +43,7 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, x: -20 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+  show: { opacity: 1, x: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
 };
 
 export const ModulosGrid = () => {
@@ -85,7 +85,7 @@ export const ModulosGrid = () => {
               variants={itemVariants}
               className="flex items-start gap-5 md:gap-6 group"
             >
-              <div className="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center mt-1">
+              <div className="shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center mt-1">
                 {modulo.icon}
               </div>
               <div>
@@ -102,7 +102,7 @@ export const ModulosGrid = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="relative w-full h-full min-h-[350px] lg:min-h-[350px] rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] border border-gray-200"
+            className="relative w-full h-full min-h-87.5 lg:min-h-87.5 rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] border border-gray-200"
           >
             <Image
               src="/images/product.jpg" 

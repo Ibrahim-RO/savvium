@@ -43,7 +43,7 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
 };
 
 export const ProblemasSection = () => {
@@ -72,7 +72,8 @@ export const ProblemasSection = () => {
           {problemas.map((problema) => (
             <motion.div
               key={problema.id}
-              opacity={1}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               variants={itemVariants}
               className="group bg-white rounded-2xl p-8 border border-gray-200 hover:border-blue-600 hover:shadow-xl hover:shadow-gray-800/10 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] flex flex-col items-start transition-all duration-300 cursor-pointer"
             >
